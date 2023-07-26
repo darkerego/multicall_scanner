@@ -195,7 +195,8 @@ options:
 
 </pre>
 <p>
-Note: not super well tested but should work. Specify the max nonce to check contracts that have not 
+
+**Note**: This is beta functionality. Specify the max nonce to check contracts that have not 
 been deployed yet by each address. It will first have to get the nonces of each account, which cannot 
 be done via multicall, so it takes a bit. Afterwards though, it will fire off all the getBalance calls 
 with multicall and if it finds a balance in any of the undeployed contract addresses, it will report it!
