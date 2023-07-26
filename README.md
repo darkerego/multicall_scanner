@@ -127,7 +127,7 @@ ethereum_ws_endpoint = wss://ethereum.infura.io/xxxx
 #### Example usage
 
 #### Scanning for eth/token balances, (or some custom call)
-<p>
+<pre>
 usage: mcscan.py scan [-h] [-o OUTPUT] [-dn] [-t TOKEN [TOKEN ...]] [-bp BRUTE_PATHS] file
 
 positional arguments:
@@ -144,7 +144,7 @@ options:
   -bp BRUTE_PATHS, --brute-paths BRUTE_PATHS
                         Load this list of derivation path and brute force the mnemonics.
 
-</p>
+</pre>
 <p>
 If you wanted to scan a list of either private keys or public addresses to check their 
 Ether balance on the Ethereum main network, you could run ... 
