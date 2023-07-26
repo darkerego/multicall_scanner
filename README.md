@@ -90,17 +90,27 @@ Here is a list of current deployments:
 #### Installation and configuration
 
 <p>
-Install the requirements.txt like you normally would. Note that you may have to slightly 
-modify the file `multicall.py` from the pypi `multicall` library. Simple find the function  
- __call__(self) and make it asynchronous like:
-</p>
+Install the requirements.txt like you normally would. It is possible/probable that you
+will not have this issue, but ... Note that you **may** have to slightly 
+modify the file `multicall.py` from the pypi `multicall` library... if you get an error about
+the event loop already running, you just simply need to edit: 
+
+`env/lib/python3.10/site-packages/multicall/multicall.py`  
+
+Find the function  
+
+ `def __call__(self)` 
+ 
+
+and make it asynchronous like:
+
 
 <pre>
-async def __call__(self) -> Dict[str,Any]:
-    start = time()
-    response = await self.coroutine()
-    logger.debug(f"Multicall took {time() - start}s")
-    return response
+    async def __call__(self) -> Dict[str,Any]:  # make it async
+        start = time()
+        response = await self  # instead of await_awaitable(self)
+        logger.debug(f"Multicall took {time() - start}s")
+        return response
     
 </pre>
 

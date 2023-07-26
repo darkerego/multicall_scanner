@@ -1,4 +1,5 @@
 import asyncio
+import os
 
 import dotenv
 import eth_abi
@@ -39,8 +40,16 @@ class MultiCalls:
 
     async def __ainit__(self):
         dotenv.load_dotenv()
-
+        self.create_dirs()
         await self.reconnect_ws()
+
+
+    def create_dirs(self):
+        try:
+            os.mkdir('reports')
+        except FileExistsError:
+            pass
+
 
     async def reconnect_ws(self):
         # print('[~] Connecting to ', self.rpcs)
