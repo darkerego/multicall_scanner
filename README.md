@@ -126,7 +126,7 @@ ethereum_ws_endpoint = wss://ethereum.infura.io/xxxx
 
 #### Example usage
 
-#### Scanning for eth/token balances, (or some custom call)
+#### Scanning for eth/token balances, (or some custom contract cal [*] l)
 <pre>
 usage: mcscan.py scan [-h] [-o OUTPUT] [-dn] [-t TOKEN [TOKEN ...]] [-bp BRUTE_PATHS] file
 
@@ -162,9 +162,22 @@ python3 mcscan.py -f keys/sample.keys -o sample.out.json --token 0xdAC17F958D2ee
 </pre>
 
 <p>
-You can also write your own custom call function. Just add it to `lib/multicalls.py`. I will 
-update this readme with details on that soon.
+
+`* custom contract calls: `
+You could easily write your own custom call function. Just add it to `lib/multicalls.py`. Currently, 
+you could write a function for any contract call that took an address as it's only input. Perhaps 
+future version of this program will have more versatile support for custom contract calls. I'd have to 
+think about how best to implement it. However, if you are a programmer you can easily modify this 
+to your data aggregation needs. For example, here's a function to get the reserves of a liquidity pool:
 </p>
+
+<pre>
+    def add_call_get_reserves(self, pair_address: (str, ChecksumAddress)):
+        
+        return multicall.Call(pair_address, ['getReserves()((uint112,uint112,uint32))'],
+                              [(pair_address, self.done_callback)])
+        
+</pre>
 
 ### Searching for hidden ether
 <pre>
