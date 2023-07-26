@@ -117,17 +117,28 @@ and make it asynchronous like:
 
 <p>
 Then you just need to set your RPC endpoints. Create a .env file and for each chain that you want 
-to use, configure in .env like this (for example ethereum):
+to use, configure in .env like this(in example, replacing `chain` with `ethereum`) :
+</p>
+<pre>
+chain_http_endpoint
+chain_ws_endpoint
+</pre>
+
+<p>
+Example .env:
 </p>
 
 <pre>
 ethereum_http_endpoint = https://ethereum.infura.io/xxxx
 ethereum_ws_endpoint = wss://ethereum.infura.io/xxxx
+arbitrum_http_endpoint =  https://arbitrum.infura.io/xxxx
+arbitrum_ws_endpoint = wss://arbitrum.infura.io/xxxx
 </pre>
 
 <p>
 Out of the box, the default networks that run (if you don't specify any via `--networks`), the following 
-is the default (you can edit this to your liking in `lib/default_networks.py`):
+is the default (you can edit this to your liking in `lib/default_networks.py`) and you would need to configure 
+RPCs for these networks:
 </p>
 <pre>
 SUPPORTED_NETWORKS = ['ethereum', 'binance', 'arbitrum',
@@ -137,7 +148,9 @@ SUPPORTED_NETWORKS = ['ethereum', 'binance', 'arbitrum',
 
 <p>
 I am currently using ankr.com for all of my RPC's. It only costs $15 per month, and that's sufficient 
-for a decent amount of scans.
+for a decent amount of scans. You can simply specify the networks you want to scan like:
+
+`--networks ethereum arbitrum bsc`
 </p>
 
 #### Example usage
