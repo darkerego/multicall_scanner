@@ -183,6 +183,11 @@ $ python3 mcscan.py -f keys/sample.keys -o sample.out -n ethereum
 </pre>
 
 <p>
+Keep in mind that sample list is just a few thousand publicly burned keys, and this program **really** 
+shines when you are scanning tens of thousands, or millions of accounts. 
+</p>
+
+<p>
 If you also wanted to check those accounts for an ERC20 token balance, you could specify
 
 <pre>
