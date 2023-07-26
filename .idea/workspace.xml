@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="602f9785-636a-43f8-908a-0722c51bb083" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../SemiAutoTrader/fund_manager.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../blackmirror2/main.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../indicator/indicator_framework/patterns.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../nexotool/anticaptcha_code.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../nexotool/cbpass.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../nexotool/cloudtest.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../nexotool/coinbase_selen.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../nexotool/coinbase_selenium.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../nexotool/nexo.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../nexotool/roryversion.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../nexotool/selenapp.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../nexotool/test2.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../proxyserver/.idea/dbnavigator.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../proxyserver/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../proxyserver/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../proxyserver/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../proxyserver/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../proxyserver/.idea/proxyserver.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../pygmx/data/collateral_tokens.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../pygmx/data/gmx_contracts.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../pygmx/data/orderBookReader.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../pygmx/docs/open_position.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../pygmx/docs/open_positions.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../pygmx/main.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../pygmx/test_http.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../pygmx/utils/json_handler.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../scamToken/Test.sol" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../scamToken/Token.sol" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../scanner_node/scanner.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../syftx/.idea/syftx.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../uploader/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rman/CHECK_IF_CANT_FIND/.idea/untitled1.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rman/attpin/.idea/attpin.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rman/distrib_scan/.idea/distrib_scan.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rman/distributednuk/.idea/distributednuk.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rman/domainfront/.idea/domainfront.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rman/domlinktest/.idea/domlinktest.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rman/dvsa/.idea/dvsa.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rman/honey/.idea/honey.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rman/http_scaper/.idea/http_scaper.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rman/spoofmail/.idea/spoofmail.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rman/stingsearch/.idea/stingsearch.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rman/vbullexploit/.idea/vbullexploit.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rman/viewdnss/.idea/viewdnss.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rman/vpn_xsploit/.idea/vpn_xsploit.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rman/wli/.idea/wli.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Rman/xmrscan/.idea/xmrscan.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../coinbase_enum-master/.idea/coinbase_enum.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../coinbase_enum-master/.idea/coinbase_enum.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../indicator/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../indicator/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../indicator/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../indicator/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../indicator/debug.log" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../indicator/engine.py" beforeDir="false" afterPath="$PROJECT_DIR$/../indicator/engine.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../indicator/kline.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/../indicator/kline.sqlite" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../indicator/utils/mqtt_skel.py" beforeDir="false" afterPath="$PROJECT_DIR$/../indicator/utils/mqtt_skel.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/keys/sample.keys" beforeDir="false" afterPath="$PROJECT_DIR$/keys/sample.keys" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../proxyserver/asyncproxy.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../proxyserver/deployer.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../proxyserver/http_server.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../proxyserver/init_gw.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../proxyserver/init_proxy.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../proxyserver/initproxy.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../proxyserver/testpproxy.py" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Solidity Contract" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2NWR4wbgkNXmdlvhxj592c6zKeh" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "/home/null/PycharmProjects/autodump"
+  }
+}]]></component>
+  <component name="RunManager">
+    <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="multicall_scanner" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="602f9785-636a-43f8-908a-0722c51bb083" name="Changes" comment="" />
+      <created>1679777666863</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1679777666863</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/main.py</url>
+          <line>148</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
