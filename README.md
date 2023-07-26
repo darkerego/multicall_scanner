@@ -16,7 +16,8 @@ your imagination.
 ###### Asciinema Demo
 [![asciicast](https://asciinema.org/a/QOSaUu7kLOStynw84B9r0zkFj.svg)](https://asciinema.org/a/QOSaUu7kLOStynw84B9r0zkFj)
 
-##### Usage
+
+### Usage
 
 <pre>
 usage: mcscan.py [-h] [-cc CHECK_INDEX_TO] [-cC] [-ia INPUT_ARRAY] [-oa OUTPUT_ARRAY] [-cb CALL_BATCH] [-fb FILE_BATCH] [-km {key,mnemonic}]
