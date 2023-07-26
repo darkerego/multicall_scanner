@@ -125,6 +125,21 @@ ethereum_http_endpoint = https://ethereum.infura.io/xxxx
 ethereum_ws_endpoint = wss://ethereum.infura.io/xxxx
 </pre>
 
+<p>
+Out of the box, the default networks that run (if you don't specify any via `--networks`), the following 
+is the default (you can edit this to your liking in `lib/default_networks.py`):
+</p>
+<pre>
+SUPPORTED_NETWORKS = ['ethereum', 'binance', 'arbitrum',
+                      'polygon', 'optimism', 'aurora', 'xdai',
+                      'heco', 'all']
+</pre>
+
+<p>
+I am currently using ankr.com for all of my RPC's. It only costs $15 per month, and that's sufficient 
+for a decent amount of scans.
+</p>
+
 #### Example usage
 
 #### Scanning for eth/token balances, (or some custom contract cal [*] l)

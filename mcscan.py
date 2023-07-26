@@ -2,6 +2,7 @@
 import argparse
 import asyncio
 import binascii
+import builtins
 import itertools
 import json
 import math
@@ -11,7 +12,6 @@ import pickle
 import pprint
 import time
 from asyncio.exceptions import TimeoutError
-import builtins
 from decimal import Decimal
 # from itertools import cycle
 from typing import Any, Generator
@@ -20,6 +20,7 @@ import aiofiles
 import dotenv
 import hexbytes
 import rlp
+import tqdm.asyncio as tqdma
 import trio
 import trio_parallel
 import web3
@@ -27,8 +28,6 @@ from eth_account.signers.local import LocalAccount
 from eth_typing import ChecksumAddress
 from eth_utils import keccak, to_checksum_address, to_bytes
 from multicall import Call
-import tqdm.asyncio as tqdma
-
 # import nest_asyncio
 # from web3 import Web3, HTTPProvider, WebsocketProvider
 from web3.exceptions import ContractLogicError
@@ -36,6 +35,7 @@ from websockets.exceptions import ConnectionClosedError
 
 from lib import abi_lib
 from lib import style
+from lib.default_networks import SUPPORTED_NETWORKS
 from lib.mnemonics_utils import mnemonic_to_private_key
 from lib.multi_network import MultiNetworkManager
 # from tqdm import tqdm
@@ -48,9 +48,6 @@ from_mnemonic = web3.Account.from_mnemonic
 # nest_asyncio.apply()
 dotenv.load_dotenv()
 ZERO_ADDRESS = to_checksum_address('0x' + '0' * 40)
-SUPPORTED_NETWORKS = ['ethereum', 'binance', 'arbitrum',
-                      'polygon', 'optimism', 'aurora', 'xdai',
-                      'heco', 'all']
 
 
 # mnem = mnemonic.Mnemonic("english")
