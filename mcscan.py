@@ -40,7 +40,7 @@ from lib.mnemonics_utils import mnemonic_to_private_key
 from lib.multi_network import MultiNetworkManager
 # from tqdm import tqdm
 from lib.multicalls import MultiCalls
-
+from utils.parse_report import MultiCallScanReportParser
 # import mnemonic
 web3.Account.enable_unaudited_hdwallet_features()
 from_mnemonic = web3.Account.from_mnemonic
@@ -48,6 +48,7 @@ from_mnemonic = web3.Account.from_mnemonic
 # nest_asyncio.apply()
 dotenv.load_dotenv()
 ZERO_ADDRESS = to_checksum_address('0x' + '0' * 40)
+
 
 
 # mnem = mnemonic.Mnemonic("english")
@@ -931,10 +932,11 @@ def main(eth_accounts: list):
 
 if __name__ == '__main__':
     args = argparse.ArgumentParser()
+    # args.parse_known_intermixed_args()
     # args.add_argument('-f', '--file', type=str, default=None,
     #                   help='List of private keys to load into memory.')
-    args.add_argument('-cc', '--check-children', dest='check_index_to', type=int, default=3)
-    args.add_argument('-cC', '--custom-call', dest='custom_call', action='store_true')
+    args.add_argument('-nc', '--check-children', dest='check_index_to', type=int, default=3)
+    args.add_argument('-CC', '--custom-call', dest='custom_call', action='store_true')
 
     args.add_argument('-ia', '--input_array', type=list, help='Input array for custom call.')
     args.add_argument('-oa', '--output_array', type=list, help='Output array for custom call.')
@@ -973,11 +975,21 @@ if __name__ == '__main__':
     ether_search.add_argument('-o', '--output', type=str,
                               help='Where to log results, if not specified a file will be generated.')
 
+    parse = subparsers.add_parser('parse', help='Parse a previously generated report.')
+    parse.add_argument('report_file', type=str)
+    parse.add_argument('-t', '--threshold', type=float, default=0.0)
+    parse.add_argument('-c', '--chain', type=str, default='ethereum')
+    parse.add_argument('-d', '--debug', action='store_true')
+
     args = args.parse_args()
     os.environ["ASYNC_W3"] = "1"
     os.environ["MULTICALL_PROCESSES"] = f"{os.cpu_count()}"
     tokens = []
     PATHS = []
+    if args.command == 'parse':
+        rep_parser = MultiCallScanReportParser(args.report_file, args.debug)
+        rep_parser.parse_report(args.chain, args.threshold)
+        exit()
     if args.command == 'scan':
         if args.brute_paths:
             PATHS = read_as_lines(args.brute_paths)
@@ -1006,7 +1018,7 @@ if __name__ == '__main__':
     keys = key_loader.key_loader(args.file)
     # print(keys)
     # all_accts = []
-    eth_accounts = post_process(keys)
+    eth_accounts = post_process(keys, "m/44'/60'/0'/0")
     all_accts = eth_accounts
     print(f'[+] Loaded total: {len(eth_accounts)}')
     if args.command == 'scan':
@@ -1016,5 +1028,7 @@ if __name__ == '__main__':
                 eth_accounts = post_process(keys, path.strip('\r\n'))
                 [all_accts.append(a) for a in eth_accounts]
             print(f'[~] Total to scan: {len(all_accts)}')
+
+
 
     main(all_accts)
