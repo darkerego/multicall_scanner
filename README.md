@@ -20,19 +20,20 @@ your imagination.
 ### Usage
 
 <pre>
-usage: mcscan.py [-h] [-cc CHECK_INDEX_TO] [-cC] [-ia INPUT_ARRAY] [-oa OUTPUT_ARRAY] [-cb CALL_BATCH] [-fb FILE_BATCH] [-km {key,mnemonic}]
+usage: mcscan.py [-h] [-nc CHECK_INDEX_TO] [-CC] [-ia INPUT_ARRAY] [-oa OUTPUT_ARRAY] [-cb CALL_BATCH] [-fb FILE_BATCH] [-km {key,mnemonic}]
                  [-n {ethereum,binance,arbitrum,polygon,optimism,aurora,xdai,heco,all} [{ethereum,binance,arbitrum,polygon,optimism,aurora,xdai,heco,all} ...]] [-v]
-                 {scan,etherSearch} ...
+                 {scan,etherSearch,parse} ...
 
 positional arguments:
-  {scan,etherSearch}
+  {scan,etherSearch,parse}
     scan                Scan balances.
     etherSearch         Searches for ether hidden in not-yet-generated contracts.
+    parse               Parse a previously generated report.
 
 options:
   -h, --help            show this help message and exit
-  -cc CHECK_INDEX_TO, --check-children CHECK_INDEX_TO
-  -cC, --custom-call
+  -nc CHECK_INDEX_TO, --check-children CHECK_INDEX_TO
+  -CC, --custom-call
   -ia INPUT_ARRAY, --input_array INPUT_ARRAY
                         Input array for custom call.
   -oa OUTPUT_ARRAY, --output_array OUTPUT_ARRAY
