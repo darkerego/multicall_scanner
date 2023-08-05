@@ -7,8 +7,9 @@ from lib import style
 
 class MultiNetworkManager:
 
-    def __init__(self, chains: list[str]):
+    def __init__(self, chains: list[str], http_fb=False):
         dotenv.load_dotenv()
+        self.http_fb = http_fb
         self.chains = chains
         if self.chains.__contains__('all'):
             for x, c in enumerate(self.chains):
@@ -38,7 +39,10 @@ class MultiNetworkManager:
     def setup_multicall(self, chain: str) -> (multicalls.MultiCalls, False):
         http_rpc = os.environ.get(f'{chain}_http_endpoint')
         ws_rpc = os.environ.get(f'{chain}_ws_endpoint')
-        rpcs = [ws_rpc, http_rpc]
+        if not self.http_fb:
+            rpcs = [ws_rpc, http_rpc]
+        else:
+            rpcs = [http_rpc]
         mc = multicalls.MultiCalls(rpcs, chain)
         if mc:
             return mc

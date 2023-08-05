@@ -41,6 +41,7 @@ from lib.multi_network import MultiNetworkManager
 # from tqdm import tqdm
 from lib.multicalls import MultiCalls
 from utils.parse_report import MultiCallScanReportParser
+
 # import mnemonic
 web3.Account.enable_unaudited_hdwallet_features()
 from_mnemonic = web3.Account.from_mnemonic
@@ -48,7 +49,6 @@ from_mnemonic = web3.Account.from_mnemonic
 # nest_asyncio.apply()
 dotenv.load_dotenv()
 ZERO_ADDRESS = to_checksum_address('0x' + '0' * 40)
-
 
 
 # mnem = mnemonic.Mnemonic("english")
@@ -195,7 +195,7 @@ class LogicError(Exception):
 
 
 class MulticallScanner:
-    def __init__(self, _networks: list[str], _tokens: list = None, outfile: str = None, custom_config: str = None):
+    def __init__(self, _networks: list[str], _tokens: list = None, outfile: str = None, custom_config: str = None, http_fb: bool = False):
         self.initialized = False
         self.token_total = 0
         self.eth_total = 0
@@ -227,7 +227,7 @@ class MulticallScanner:
         else:
             self.outfile = f'output/{outfile}_{time.time()}.json'
 
-        self.mcm = MultiNetworkManager(self.networks)
+        self.mcm = MultiNetworkManager(self.networks, http_fb=http_fb)
 
     async def __ainit__(self):
         """
@@ -543,12 +543,13 @@ class MulticallScanner:
         # print(calls)
         self.concurrent_tasks += 1
         mc: MultiCalls = self.get_mc(chain)
-        ret = await mc.run(calls=calls)
-        # print(ret)
-        self.concurrent_tasks -= 1
-        # tokens = self.tokens
+        if calls:
+            ret = await mc.run(calls=calls)
+            # print(ret)
+            self.concurrent_tasks -= 1
+            # tokens = self.tokens
 
-        asyncio.create_task(self.parse_calls(ret, kb, chain))
+            asyncio.create_task(self.parse_calls(ret, kb, chain))
 
     async def start_loop_custom_call(self, input_array: list, output_array: list, chain: str):
         """
@@ -597,7 +598,11 @@ class MulticallScanner:
     async def start_loop_native(self, chain: str):
 
         # calls = []
-        # print(len(self.accounts), args.call_batch)
+        ACCOUNTS = []
+        for b in self.accounts:
+            ACCOUNTS.extend(b)
+        self.accounts = ACCOUNTS
+        self.printer.normal(f'Accounts: {len(self.accounts)} Call batch size: {args.call_batch}')
         if len(self.accounts) > args.call_batch:
             total = len(self.accounts)
             self.printer.normal('Splitting keys into batches ... ')
@@ -605,12 +610,12 @@ class MulticallScanner:
         else:
             # print('Not splitting ... ')
             total = 0
-            for _key_batch_ in self.accounts:
-                for _key_ in _key_batch_:
-                    total += 1
-            key_batches = self.accounts
+            #for _key_batch_ in self.accounts:
+            #    for _key_ in _key_batch_:
+            #        total += 1
+            key_batches = [self.accounts]
         self.printer.normal(f'Have {len(self.accounts)} batches in memory ...')
-        self.printer.normal(f'Totaling {total} unique accounts ... ')
+        #self.printer.normal(f'Totaling {total} unique accounts ... ')
 
         # add_call_dual_balance = self.mc.add_call_dual_balance
         # _find_key = self._find_key
@@ -643,23 +648,24 @@ class MulticallScanner:
                             call = mc.add_call_builtin_balance(to_checksum_address(addr))
                             calls.append(call)
                         if self.tokens:
+                            #print(self.token_map)
                             for contract_address in self.tokens:
-                                tokens_chain = self.token_map.get('chain')
+                                #print(contract_address)
+                                tokens_chain = self.token_map.get(chain)
                                 if tokens_chain:
                                     if tokens_chain.get(contract_address):
                                         # token_decimals = self.token_map.get(contract_address).get('decimals')
                                         # token_symbol = self.token_map[contract_address]['symbol']
                                         # print(f'[+] Processing token {token_symbol}')
 
-                                        if account:
-                                            addr = account['address']
-                                            # print(account.get('address'))
-                                            call = mc.add_call_get_erc20_balance(to_checksum_address(addr),
-                                                                                 to_checksum_address(contract_address))
-                                            calls.append(call)
+                                        addr = account['address']
+                                        # print(account.get('address'))
+                                        call = mc.add_call_get_erc20_balance(to_checksum_address(addr),
+                                                                             to_checksum_address(contract_address))
+                                        calls.append(call)
 
             # asyncio.create_task(self.multicall_task(calls))
-            self.printer.normal('Sending batch request .. ')
+            self.printer.normal('Sending batch request of %s calls .. ' % len(calls))
             await asyncio.sleep(0.0001)
             # print(f'Adding batch. Batch %s/%s' %(x, _tot))
             await self.multicall_task(calls, kb, chain)
@@ -764,8 +770,9 @@ class KeyLoader:
         """
         try:
             acct = Acct(k)
-        except (binascii.Error, ValueError):
-            pass
+        except (binascii.Error, ValueError, Exception) as err:
+            if err == 'Invalid privkey':
+                print('[!] Invalid key: ', k)
         else:
             return acct.__dict__
 
@@ -945,6 +952,7 @@ if __name__ == '__main__':
                       help='The number of addresses to send to the smart contract at a time.')
     args.add_argument('-fb', '--file_batch', type=int, default=1000,
                       help='The number of keys per process for key loading')
+    args.add_argument('-hfb', '--fallback', action='store_true')
     # args.add_argument('-N', '--nonce_check', action='store_true', help='Look for active accounts')
     args.add_argument('-km', '--keymode', choices=['key', 'mnemonic'], default='key')
 
@@ -1013,7 +1021,7 @@ if __name__ == '__main__':
         output_file = args.output
     else:
         output_file = f'no_name_{time.time()}'
-    api = MulticallScanner(networks, tokens, output_file)
+    api = MulticallScanner(networks, tokens, output_file, http_fb=args.fallback)
     key_loader = KeyLoader()
     keys = key_loader.key_loader(args.file)
     # print(keys)
@@ -1028,7 +1036,5 @@ if __name__ == '__main__':
                 eth_accounts = post_process(keys, path.strip('\r\n'))
                 [all_accts.append(a) for a in eth_accounts]
             print(f'[~] Total to scan: {len(all_accts)}')
-
-
 
     main(all_accts)

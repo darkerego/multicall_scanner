@@ -26,9 +26,10 @@ class CallFailedError(Exception):
 
 
 class MultiCalls:
-    def __init__(self, rpcs: list, chain: str):
+    def __init__(self, rpcs: list, chain: str, http_fallback: bool = False):
         # self.arb_contract = contract
         self.chain = chain
+        self.http_fallback = http_fallback
         # self.w3_arr = cycle(w3_arr)
         self.mc_addr = None
         self.calls = []
@@ -54,12 +55,13 @@ class MultiCalls:
     async def reconnect_ws(self):
         # print('[~] Connecting to ', self.rpcs)
         RPC = None
-        for rpc in self.rpcs:
-            if rpc is not None:
-                if 'ws' in rpc:
-                    self._w3 = Web3(web3.WebsocketProvider(rpc))
-                    if self._w3.is_connected:
-                        break
+        if not self.http_fallback:
+            for rpc in self.rpcs:
+                if rpc is not None:
+                    if 'ws' in rpc:
+                        self._w3 = Web3(web3.WebsocketProvider(rpc))
+                        if self._w3.is_connected:
+                            break
         if not RPC:
             for rpc in self.rpcs:
                 if rpc is not None:
