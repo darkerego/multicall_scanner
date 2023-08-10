@@ -9,19 +9,24 @@
       <change afterPath="$PROJECT_DIR$/../ankrscan/ahttp.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../ankrscan/contract_compute.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../ankrscan/devel.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ankrscan/from_hist.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../ankrscan/heco_hack_scan.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../ankrscan/hp_rescue_conf.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../ankrscan/inviter.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ankrscan/mdex.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../ankrscan/moneyPrinter.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../ankrscan/nonceCheck.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../ankrscan/raw_tx_decode.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../ankrscan/swapit.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ankrscan/utils/constants.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../arbitrage_bot/.idea/arbitrage_bot.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../autodump/qn_alerts.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../autodump/test_streams.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../axiom_mod/.idea/axiom_mod.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../beldexjacker/.idea/beldexjacker.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../beldexjacker/install_sync.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../beldexjacker/libs/colorprint.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../beldexjacker/test.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../bitquery/.idea/bitquery.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../blackmirror2/.idea/blackmirror2.iml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/../calldata_decode/.idea/calldata_decode.iml" afterDir="false" />
@@ -87,11 +92,8 @@
       <change beforePath="$PROJECT_DIR$/../indicator/utils/mqtt_skel.py" beforeDir="false" afterPath="$PROJECT_DIR$/../indicator/utils/mqtt_skel.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../jenkins_pwn/api_cli.py" beforeDir="false" afterPath="$PROJECT_DIR$/../jenkins_pwn/api_cli.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../keysquatgen/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/../keysquatgen/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/multicall_scanner.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/multicall_scanner.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/multi_network.py" beforeDir="false" afterPath="$PROJECT_DIR$/lib/multi_network.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/multicalls.py" beforeDir="false" afterPath="$PROJECT_DIR$/lib/multicalls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mcscan.py" beforeDir="false" afterPath="$PROJECT_DIR$/mcscan.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../nexotool/anticaptcha_code.py" beforeDir="false" afterPath="$PROJECT_DIR$/../nexotool/anticaptcha_code.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../nexotool/cbpass.py" beforeDir="false" afterPath="$PROJECT_DIR$/../nexotool/cbpass.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../nexotool/cloudtest.py" beforeDir="false" afterPath="$PROJECT_DIR$/../nexotool/cloudtest.py" afterDir="false" />
@@ -156,14 +158,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "/home/anon/PycharmProjects/scamToken"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/anon/PycharmProjects/ethersweep&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="multicall_scanner" />

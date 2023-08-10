@@ -85,6 +85,7 @@ class ScanReport:
         # self.report_dict.update({address: {chain: }})
 
     def add_acct_obj(self, acct: dict):
+        # print('acct', acct)
         address = acct['address']
         # print(self.report_dict)
         if self.report_dict.get(address):
@@ -598,10 +599,7 @@ class MulticallScanner:
     async def start_loop_native(self, chain: str):
 
         # calls = []
-        ACCOUNTS = []
-        for b in self.accounts:
-            ACCOUNTS.extend(b)
-        self.accounts = ACCOUNTS
+
         self.printer.normal(f'Accounts: {len(self.accounts)} Call batch size: {args.call_batch}')
         if len(self.accounts) > args.call_batch:
             total = len(self.accounts)
@@ -613,7 +611,7 @@ class MulticallScanner:
             #for _key_batch_ in self.accounts:
             #    for _key_ in _key_batch_:
             #        total += 1
-            key_batches = [self.accounts]
+            key_batches = self.accounts
         self.printer.normal(f'Have {len(self.accounts)} batches in memory ...')
         #self.printer.normal(f'Totaling {total} unique accounts ... ')
 
@@ -1023,6 +1021,9 @@ if __name__ == '__main__':
         output_file = f'no_name_{time.time()}'
     api = MulticallScanner(networks, tokens, output_file, http_fb=args.fallback)
     key_loader = KeyLoader()
+    if not hasattr(args, 'file'):
+        print('[!] Specify  input')
+        exit(1)
     keys = key_loader.key_loader(args.file)
     # print(keys)
     # all_accts = []
