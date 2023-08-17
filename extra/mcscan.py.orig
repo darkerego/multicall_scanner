@@ -611,7 +611,7 @@ class MulticallScanner:
             #for _key_batch_ in self.accounts:
             #    for _key_ in _key_batch_:
             #        total += 1
-            key_batches = [self.accounts]
+            key_batches = self.accounts
         self.printer.normal(f'Have {len(self.accounts)} batches in memory ...')
         #self.printer.normal(f'Totaling {total} unique accounts ... ')
 
@@ -985,10 +985,7 @@ if __name__ == '__main__':
     parse.add_argument('report_file', type=str)
     parse.add_argument('-t', '--threshold', type=float, default=0.0)
     parse.add_argument('-c', '--chain', type=str, default='ethereum')
-    parse.add_argument('-o', '--output', type=str,
-                      help='Where to log results, if not specified a file will be generated.')
     parse.add_argument('-d', '--debug', action='store_true')
-
 
     args = args.parse_args()
     os.environ["ASYNC_W3"] = "1"
@@ -997,7 +994,7 @@ if __name__ == '__main__':
     PATHS = []
     if args.command == 'parse':
         rep_parser = MultiCallScanReportParser(args.report_file, args.debug)
-        rep_parser.parse_report(args.chain, args.threshold, args.output)
+        rep_parser.parse_report(args.chain, args.threshold)
         exit()
     if args.command == 'scan':
         if args.brute_paths:
@@ -1029,12 +1026,9 @@ if __name__ == '__main__':
         exit(1)
     keys = key_loader.key_loader(args.file)
     # print(keys)
-    all_accts = []
+    # all_accts = []
     eth_accounts = post_process(keys, "m/44'/60'/0'/0")
-    for batch in eth_accounts:
-        for _acct_ in batch:
-            if _acct_ is not None:
-                all_accts.append(_acct_)
+    all_accts = eth_accounts
     print(f'[+] Loaded total: {len(eth_accounts)}')
     if args.command == 'scan':
         if args.brute_paths:
